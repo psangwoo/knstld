@@ -56,7 +56,7 @@ build_tags_comma_sep := $(subst $(empty),$(comma),$(build_tags))
 # process linker flags
 
 ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=wasm \
-		  -X github.com/cosmos/cosmos-sdk/version.AppName=wasmd \
+		  -X github.com/cosmos/cosmos-sdk/version.AppName=knstld \
 		  -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
 		  -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
 		  -X github.com/CosmWasm/wasmd/app.Bech32Prefix=darc \
@@ -82,7 +82,7 @@ build: go.sum
 ifeq ($(OS),Windows_NT)
 	exit 1
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/wasmd ./cmd/wasmd
+	go build -mod=readonly $(BUILD_FLAGS) -o build/knstld ./cmd/wasmd
 endif
 
 build-contract-tests-hooks:
